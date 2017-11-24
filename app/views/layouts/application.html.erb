@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JobsBoard</title>
+    <title>Ruby on Rails Jobs </title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,9 @@
   </head>
 
   <body>
+  	<% Category.all.each do |category| %>
+			<%= link_to category.name, jobs_path(category: category.name) %>|
+  	<% end %>
     <%= yield %>
   </body>
 </html>
